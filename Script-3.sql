@@ -31,8 +31,8 @@ CREATE TABLE Books (
     GenreId INTEGER NOT NULL,
     Title CHARACTER VARYING(200) NOT NULL,
     Year INTEGER NOT NULL,
-    CONSTRAINT FK_Books_Users FOREIGN KEY (UserId) REFERENCES Users(Id) ON DELETE SET NULL,
-    CONSTRAINT FK_Books_Authors FOREIGN KEY (AuthorId) REFERENCES Authors(Id) ON DELETE CASCADE,
+    CONSTRAINT FK_Books_Users FOREIGN KEY (UserId) REFERENCES Users(Id) ON DELETE SET NULL, --Книга сохраняется, но отвязывается от пользователя
+    CONSTRAINT FK_Books_Authors FOREIGN KEY (AuthorId) REFERENCES Authors(Id) ON DELETE CASCADE, -- Удаление автора или жанра приводит к удалению связанных книг
     CONSTRAINT FK_Books_Genres FOREIGN KEY (GenreId) REFERENCES Genres(Id) ON DELETE CASCADE
 );
 
